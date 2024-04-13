@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="css/index.css" rel="stylesheet" />
+
+</head>
+
+<body>
+    <div class="content">
+        <div class="left">
+            <!--气压-->
+            <div class="air">
+                <div class="air-title title numfont">本批次鸡的平均体重</div>
+                <div class="air-relative">
+                    <div class="air-val">
+                        <span class="air-icon"></span>
+                        <div class="numfont">
+                            <p class="hpa-rel"></p>
+                            <p class="hpa-nam">公鸡</p>
+                        </div>
+                    </div>
+                    <div class="gray">
+                    </div>
+                    <div class="light">
+                    </div>
+                    <div class="unit">g</div>
+                </div>
+                <div class="air-absolutely">
+                    <div class="air-val">
+                        <span class="air-icon"></span>
+                        <div class="numfont">
+                            <p class="hpa-abs"></p>
+                            <p class="hpa-nam">母鸡</p>
+                        </div>
+                    </div>
+                    <div class="gray">
+                    </div>
+                    <div class="light">
+                    </div>
+                    <div class="unit">g</div>
+                </div>
+            </div>
+            <!--气压 end-->
+            <!--温度和湿度-->
+            <div class="tem-hum">
+                <div class="temperature">
+                    <div class="tem-hum-title numfont">公鸡成熟健康体重范围 </div>
+                    <div class="tem-hum-chart" id="temChart">
+
+                    </div>
+                    <div class="tem-val">
+                        <span class="indoor">minimum</span>
+                        <span class="outdoor">maximum</span>
+                    </div>
+                </div>
+                <div class="humidity">
+                    <div class="tem-hum-title numfont">母鸡成熟健康体重范围</div>
+                    <div class="tem-hum-chart" id="humChart">
+
+                    </div>
+                    <div class="hum-val">
+                        <span class="indoor">minimum</span>
+                        <span class="outdoor">maximum</span>
+                    </div>
+                </div>
+            </div>
+            <!--温度和湿度 end-->
+            <!--公鸡体重变化趋势-->
+            <div class="malechicken">
+                <div class="title numfont">公鸡体重变化趋势</div>
+                <div id="malechickenChart">
+                </div>
+            </div>
+            <!--公鸡体重变化趋势 end-->
+
+            <!--母鸡体重变化趋势-->
+            <div class="femalechicken">
+                <div class="title numfont">母鸡体重变化趋势</div>
+                <div id="femalechickenChart">
+                </div>
+            </div>
+            <!--母鸡体重变化趋势 end-->
+        </div>
+
+        <div class="middle">
+            <div class="headTitle">智养兴农</div>
+            <!--地图-->
+            <!--地图-->
+            <div class="chinaMap" style="color: white;">
+
+                <div id="btn" style="display: none;">
+                    <div style="position: relative;">
+                        <div class="btn0"></div>
+                        <div class="btn1"></div>
+                        <div class="btn2"></div>
+                    </div>
+                </div>
+                <div class="mapBox">
+                    <div class="mapJi1"></div>
+                    <div class="mapJi" id="map"></div>
+                    <!-- <div class="prohibit">
+                        <div>体斜长</div>
+                    </div>
+                    <div class="prohibit1">
+                        <div>胸围</div>
+                    </div>
+                    <div class="prohibit2">
+                        <div>胫围</div>
+                    </div>
+                    <div class="prohibit3">
+                        <div>胫骨</div>
+                    </div> -->
+                </div>
+            </div>
+            <!--地图 end-->
+            <!--动画-->
+            <div class="lineRun">
+
+            </div>
+        </div>
+        <div class="right">
+            <div class="air-title title numfont">鸡的龙骨长和体斜长</div>
+            <div class="information" id="information">
+            </div>
+            <!--风-->
+            <div class="wind">
+                <div class="air-title title numfont">鸡的胫围胫长</div>
+                <div class="dataChart">
+                    <div class="chart-title">
+                        <div class="rooster-title">公鸡</div>
+                        <div class="hen-title">母鸡</div>
+                    </div>
+                    <div class="roosterChart" id="roosterChart"></div>
+                    <div class="henChart" id="henChart"></div>
+                </div>
+            </div>
+            <!--风 end-->
+            <!--降雨量-->
+            <div class="rainfall">
+                <div class="air-title title numfont">一些数据</div>
+                <div class="windData">
+                    <div class="windSpeed">
+                        <div class="windTitle numfont">公鸡胸宽</div>
+                        <div class="windBox">
+                            <div style="width: 33%;margin-left: 4%;">
+                                <p>上限</p>
+                                <p><span class="currentSpeed" id="nowDay">5.78</span>CM</p>
+                            </div>
+                            <div style="width: 31%;margin-left: 2%">
+                                <p>下限</p>
+                                <p><span class="highestSpeed" id="highDay">4.9</span>CM</p>
+                            </div>
+                            <div style="width: 30%">
+                                <div class="rainWrap" style="margin: 10px auto;text-align: center;">
+                                    <canvas id="rainfallOne"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gust">
+                        <div class="windTitle numfont">公鸡胸深</div>
+                        <div class="windBox">
+                            <div style="width: 33%;margin-left: 4%;">
+                                <p>上限</p>
+                                <p><span class="currentSpeed" id="nowWeek">11.79</span>CM</p>
+                            </div>
+                            <div style="width: 31%;margin-left: 2%">
+                                <p>下限</p>
+                                <p><span class="highestSpeed" id="highWeek">8.09</span>CM</p>
+                            </div>
+                            <div style="width: 30%">
+                                <div class="rainWrap" style="margin: 10px auto;text-align: center;">
+                                    <canvas id="rainfallTwo"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="windData">
+                    <div class="windSpeed">
+                        <div class="windTitle numfont">母鸡胸宽</div>
+                        <div class="windBox">
+                            <div style="width: 33%;margin-left: 4%;">
+                                <p>上限</p>
+                                <p><span class="currentSpeed" id="nowMonth">5.34</span>CM</p>
+                            </div>
+                            <div style="width: 31%;margin-left: 2%">
+                                <p>下限</p>
+                                <p><span class="highestSpeed" id="highMonth">4.64</span>CM</p>
+                            </div>
+                            <div style="width: 30%">
+                                <div class="rainWrap" style="margin: 10px auto;text-align: center;">
+                                    <canvas id="rainfallThree"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gust">
+                        <div class="windTitle numfont">母鸡胸深</div>
+                        <div class="windBox">
+                            <div style="width: 33%;margin-left: 4%;">
+                                <p>上限</p>
+                                <p><span class="currentSpeed" id="nowYear">5.25</span>CM</p>
+                            </div>
+                            <div style="width: 31%;margin-left: 2%">
+                                <p>下限</p>
+                                <p><span class="highestSpeed" id="highYear">6.25</span>CM</p>
+                            </div>
+                            <div style="width: 30%">
+                                <div class="rainWrap" style="margin: 10px auto;text-align: center;">
+                                    <canvas id="rainfallFour"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--降雨量 end-->
+        </div>
+    </div>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/echarts.js"></script>
+    <script src="js/render.js"></script>
+    <script src="js/china.js"></script>
+    <script>
+        $(function () {
+            for (var i = 0; i < 50; i++) {
+                $('.air-relative').find('.gray').append('<span></span>');
+                $('.air-absolutely').find('.gray').append('<span></span>')
+            }
+            var pressureValRel = 0;//初始气压(相对)
+            var pressureValNowRel = 10;//当前气压（相对）
+            var malechichenweight = 2245;
+            function airPreRel(now, old, par) {
+                if (now > old) {
+                    par.find('.light').append('<span></span>');
+                    pressureValRel++;
+                } else if (now < old) {
+                    par.find('.light').children('span:last-child').remove();
+                    pressureValRel--;
+                } else {
+                    clearInterval(pressureRunRel);
+                    return
+                }
+                $('.hpa-rel').text(malechichenweight);
+            }
+            var pressureRunRel = setInterval(function () {
+                airPreRel(pressureValNowRel, pressureValRel, $('.air-relative'));
+            }, 50);
+
+            var pressureValAbs = 0;//初始气压(绝对)
+            var pressureValNowAbs = 21;//当前气压（绝对）
+            var femalechichenweight = 1569;
+            function airPreAbs(now, old, par) {
+                if (now > old) {
+                    par.find('.light').append('<span></span>');
+                    pressureValAbs++;
+                } else if (now < old) {
+                    par.find('.light').children('span:last-child').remove();
+                    pressureValAbs--;
+                } else {
+                    clearInterval(pressureRunAbs);
+                    return
+                }
+                $('.hpa-abs').text(femalechichenweight);
+            }
+            var pressureRunAbs = setInterval(function () {
+                airPreAbs(pressureValNowAbs, pressureValAbs, $('.air-absolutely'));
+            }, 50);
+
+            //温度和湿度
+            var temChart = echarts.init(document.getElementById('temChart'));
+            var humChart = echarts.init(document.getElementById('humChart'));
+            var temOption = {
+                tooltip: {
+                    formatter: '{a}<br/>当前：{c}g'
+                },
+
+                series: [
+                    //内圈
+                    {
+                        type: 'gauge',
+                        center: ['50%', '60%'],    // 默认全局居中
+                        radius: '30%',
+                        min: 2000,
+                        max: 3000,
+                        startAngle: 270,
+                        endAngle: -89.99999,
+                        splitNumber: 100,
+                        axisLine: {            // 仪表盘轴线
+                            lineStyle: {       // 属性lineStyle控制线条样式
+                                color: [[1, '#ff4500']],
+                                width: 0,
+                                shadowColor: '#fff', //默认透明
+                                shadowBlur: 10
+                            }
+                        },
+                        axisLabel: {            // 刻度标签
+                            show: false
+                        },
+                        axisTick: {            // 刻度
+                            length: 4,        // 属性length控制线长
+                            lineStyle: {       // 属性lineStyle控制线条样式
+                                color: 'rgba(176,204,53,.5)'
+                            }
+                        },
+                        splitLine: {           // 分隔线
+                            show: false
+                        },
+                        pointer: {
+                            width: 0,
+                            shadowColor: '#fff', //默认透明
+                            shadowBlur: 5
+                        },
+                        detail: {
+                            show: false
+                        }
+                    },
+                    //中圈
+                    {
+                        name: '转速',
+                        type: 'gauge',
+                        center: ['50%', '60%'],    // 默认全局居中
+                        radius: '60%',
+                        min: 2000,
+                        max: 3000,
+                        splitNumber: 100,
+                        axisLine: {            // 坐标轴线
+                            lineStyle: {       // 属性lineStyle控制线条样式
+                                color: [[1, '#6E6560']],
+                                width: 8,
+                                shadowBlur: 10
+                            }
+                        },
+                        axisLabel: {            // 刻度
+                            textStyle: {       // 属性lineStyle控制线条样式
+                                fontWeight: '',
+                                color: 'rgba(30,144,255,0)',
+                                shadowColor: '#fff', //默认透明
+                                shadowBlur: 10
+                            }
+                        },
+                        axisTick: {            // 坐标轴小标记
+                            length: 2,        // 属性length控制线长
+                            lineStyle: {       // 属性lineStyle控制线条样式
+                                color: 'auto'
+                                /*shadowColor : '#fff', //默认透明
+                                 shadowBlur: 10*/
+                            }
+                        },
+                        splitLine: {           // 分隔线
+                            length: 0,         // 属性length控制线长
+                            lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
+                                width: 0,
+                                color: '#fff',
+                                shadowColor: '#fff', //默认透明
+                                shadowBlur: 10
+                            }
+                        },
+                        pointer: {
+                            width: 0,
+                            shadowColor: '#fff', //默认透明
+                            shadowBlur: 5
+                        },
+                        detail: {
+                            show: false
+                        }
+                    },
+                    //外圈室内
+                    {
+                        type: 'gauge',
+                        center: ['50%', '60%'],    // 默认全局居中
+                        radius: '100%',
+                        min: 2000,
+                        max: 3000,
+                        name: ' 最大体重',
+                        axisLine: {            // 坐标轴线
+                            lineStyle: {
+                                color: [[1, '#C7C5C3']],// 属性lineStyle控制线条样式
+                                width: 1
+                            }
+                        },
+                        itemStyle: {
+                            normal: {
+                                color: '#FF0000'
+                            }
+                        },
+                        axisTick: {
+                            length: 3
+                        },
+                        axisLabel: {            // 坐标轴小标记
+                            textStyle: {       // 属性lineStyle控制线条样式
+                                fontWeight: 'bolder',
+                                fontSize: 10,
+                                fontFamily: 'numfont'
+                            }
+                        },
+                        splitLine: {           // 分隔线
+                            length: 5,         // 属性length控制线长
+                            lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
+                                width: 1
+                            }
+                        },
+                        pointer: {
+                            width: 3,
+                            length: '90%'
+                        },
+                        detail: {
+                            show: false
+                        },
+                        data: [{ value: 2990 }]
+                    },
+                    //外圈室外
+                    {
+                        type: 'gauge',
+                        center: ['50%', '60%'],    // 默认全局居中
+                        radius: '100%',
+                        min: 2000,
+                        max: 3000,
+                        name: '最小体重',
+                        axisTick: {
+                            length: 3
+                        },
+                        axisLine: {            // 坐标轴线
+                            lineStyle: {
+                                color: [[1, '#C7C5C3']],// 属性lineStyle控制线条样式
+                                width: 1
+                            }
+                        },
+                        pointer: {
+                            width: 3,
+                            length: '90%'
+                        },
+                        itemStyle: {
+                            normal: {
+                                color: '#B0CC35'
+                            }
+
+                        },
+                        axisLabel: {
+                            textStyle: {
+                                fontWeight: 'bolder',
+                                fontSize: 16,
+                                color: 'rgba(30,144,255,0)'
+                            }
+                        },
+                        splitLine: {           // 分隔线
+                            length: 5,         // 属性length控制线长
+                            lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
+                                width: 1
+                            }
+                        },
+                        detail: {
+                            show: false
+                        },
+                        data: [{ value: 2070 }],
+                        title: {
+                            show: false
+                        }
+                    }
+                ]
+            };
+            var humOption = {
+                tooltip: {
+                    formatter: '{a}<br/>当前：{c}g'
+                },
+                series: [
+                    //内圈
+                    {
+                        type: 'gauge',
+                        center: ['50%', '60%'],    // 默认全局居中
+                        radius: '30%',
+                        min: 1000,
+                        max: 2000,
+                        startAngle: 270,
+                        endAngle: -89.99999,
+                        splitNumber: 10,
+                        axisLine: {            // 仪表盘轴线
+                            lineStyle: {       // 属性lineStyle控制线条样式
+                                color: [[1, '#ff4500']],
+                                width: 0,
+                                shadowColor: '#fff', //默认透明
+                                shadowBlur: 10
+                            }
+                        },
+                        axisLabel: {            // 刻度标签
+                            show: false
+                        },
+                        axisTick: {            // 刻度
+                            length: 4,        // 属性length控制线长
+                            lineStyle: {       // 属性lineStyle控制线条样式
+                                color: 'rgba(176,204,53,.5)'
+                            }
+                        },
+                        splitLine: {           // 分隔线
+                            show: false
+                        },
+                        pointer: {
+                            width: 0,
+                            shadowColor: '#fff', //默认透明
+                            shadowBlur: 5
+                        },
+                        detail: {
+                            show: false
+                        }
+                    },
+                    //中圈
+                    {
+                        name: '转速',
+                        type: 'gauge',
+                        center: ['50%', '60%'],    // 默认全局居中
+                        radius: '60%',
+                        min: 1000,
+                        max: 2000,
+                        splitNumber: 100,
+                        axisLine: {            // 坐标轴线
+                            lineStyle: {       // 属性lineStyle控制线条样式
+                                color: [[1, '#6E6560']],
+                                width: 8,
+
+                                shadowBlur: 10
+                            }
+                        },
+                        axisLabel: {            // 刻度
+                            textStyle: {       // 属性lineStyle控制线条样式
+                                fontWeight: '',
+                                color: 'rgba(30,144,255,0)',
+                                shadowColor: '#fff', //默认透明
+                                shadowBlur: 10
+                            }
+                        },
+                        axisTick: {            // 坐标轴小标记
+                            length: 2,        // 属性length控制线长
+                            lineStyle: {       // 属性lineStyle控制线条样式
+                                color: 'auto'
+                                /*shadowColor : '#fff', //默认透明
+                                 shadowBlur: 10*/
+                            }
+                        },
+                        splitLine: {           // 分隔线
+                            length: 0,         // 属性length控制线长
+                            lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
+                                width: 0,
+                                color: '#fff',
+                                shadowColor: '#fff', //默认透明
+                                shadowBlur: 10
+                            }
+                        },
+                        pointer: {
+                            width: 0,
+                            shadowColor: '#fff', //默认透明
+                            shadowBlur: 5
+                        },
+                        detail: {
+                            show: false
+                        }
+                    },
+                    //外圈室内
+                    {
+                        type: 'gauge',
+                        center: ['50%', '60%'],    // 默认全局居中
+                        radius: '100%',
+                        min: 1000,
+                        max: 2000,
+                        name: '最大体重',
+                        axisLine: {            // 坐标轴线
+                            lineStyle: {
+                                color: [[1, '#C7C5C3']],// 属性lineStyle控制线条样式
+                                width: 1
+                            }
+                        },
+                        itemStyle: {
+                            normal: {
+                                color: '#FF0000'
+                            }
+                        },
+                        axisTick: {
+                            length: 3
+                        },
+                        axisLabel: {            // 坐标轴小标记
+                            textStyle: {       // 属性lineStyle控制线条样式
+                                fontWeight: 'bolder',
+                                fontSize: 10,
+                                fontFamily: 'numfont'
+                            }
+                        },
+                        splitLine: {           // 分隔线
+                            length: 5,         // 属性length控制线长
+                            lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
+                                width: 1
+                            }
+                        },
+                        pointer: {
+                            width: 3,
+                            length: '90%'
+                        },
+                        detail: {
+                            show: false
+                        },
+                        data: [{ value: 1570 }]
+                    },
+                    //外圈室外
+                    {
+                        type: 'gauge',
+                        center: ['50%', '60%'],    // 默认全局居中
+                        radius: '100%',
+                        min: 1000,
+                        max: 2000,
+                        name: '最小体重',
+                        axisTick: {
+                            length: 3
+                        },
+                        axisLine: {            // 坐标轴线
+                            lineStyle: {
+                                color: [[1, '#C7C5C3']],// 属性lineStyle控制线条样式
+                                width: 1
+                            }
+                        },
+                        pointer: {
+                            width: 3,
+                            length: '90%'
+                        },
+                        itemStyle: {
+                            normal: {
+                                color: '#B0CC35'
+                            }
+
+                        },
+                        axisLabel: {
+                            textStyle: {
+                                fontWeight: 'bolder',
+                                fontSize: 16,
+                                color: 'rgba(30,144,255,0)'
+                            }
+                        },
+                        splitLine: {           // 分隔线
+                            length: 5,         // 属性length控制线长
+                            lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
+                                width: 1
+                            }
+                        },
+                        detail: {
+                            show: false
+                        },
+                        data: [{ value: 1130 }],
+                        title: {
+                            show: false
+                        }
+                    }
+
+                ]
+            };
+            temChart.setOption(temOption);
+            humChart.setOption(humOption);
+            var temVal = [25, 36];
+            var humVal = [21, 30];
+            function temHum(tem, hum) {
+                temOption.series[2].data[0].value = tem[0];
+                temOption.series[3].data[0].value = tem[1];
+                temChart.setOption(temOption);
+                $('.tem-val').find('.indoor').text(tem[0] + 'g');
+                $('.tem-val').find('.outdoor').text(tem[1] + 'g');
+                humOption.series[2].data[0].value = hum[0];
+                humOption.series[3].data[0].value = hum[1];
+                humChart.setOption(humOption);
+                $('.hum-val').find('.indoor').text(hum[0] + "g");
+                $('.hum-val').find('.outdoor').text(hum[1] + "g");
+            }
+
+            // 鸡的体重值
+            // 数据：周龄，公鸡体重，母鸡体重
+            var data = [
+                ['0', 41.8, 39.4],
+                ['2', 75.67, 42.55],
+                ['4', 120.45, 65.67],
+                ['8', 192.38, 92.19],
+                ['10', 309.52, 115.24],
+                ['12', 428.64, 190.38],
+                ['14', 482.04, 230.12],
+                ['18', 684.36, 297.52],
+                ['20', 898.12, 350.43],
+                ['22', 1034.76, 438.04],
+                ['24', 1100.40, 567.82],
+                ['26', 1320.01, 654.36],
+                ['28', 1520.56, 790.45],
+                ['30', 1707.42, 860.72],
+                ['32', 1865.44, 959.12],
+                ['34', 1999.39, 1030.67],
+                ['36', 2067.36, 1105.34],
+                ['38', 2125.50, 1205.49],
+                ['40', 2249.34, 1247.65],
+                ['42', 2366.78, 1321.54],
+                ['46', 2470.73, 1350.23],
+                ['50', 2569.67, 1374.77],
+            ];
+
+            // 数据序列化
+            function splitData(rawData) {
+                var categoryData = [];
+                var maleValues = [];
+                var femaleValues = [];
+                for (var i = 0; i < rawData.length; i++) {
+                    categoryData.push(rawData[i][0]);
+                    maleValues.push(rawData[i][1]);
+                    femaleValues.push(rawData[i][2]);
+                }
+                return {
+                    categoryData: categoryData,
+                    maleValues: maleValues,
+                    femaleValues: femaleValues
+                };
+            }
+
+            var data0 = splitData(data);
+
+            function calculateMA(dayCount, data) {
+                var result = [];
+                for (var i = 0, len = data.length; i < len; i++) {
+                    if (i < dayCount) {
+                        result.push('-');
+                        continue;
+                    }
+                    var sum = 0;
+                    for (var j = 0; j < dayCount; j++) {
+                        sum += data[i - j];
+                    }
+                    result.push((sum / dayCount).toFixed(2));
+                }
+                return result;
+            }
+
+            var malechickenOption = {
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'cross'
+                    },
+                    width: 2
+                },
+                legend: {
+                    data: ['公鸡体重'],
+                    top: 0,
+                    textStyle: {
+                        color: '#fff'
+                    }
+                },
+                xAxis: {
+                    type: 'category',
+                    data: data0.categoryData,
+                    boundaryGap: false,
+                    axisLine: {
+                        lineStyle: {
+                            color: '#777'
+                        }
+                    }
+                },
+                yAxis: {
+                    scale: true,
+                    splitNumber: 4,
+                    axisLine: {
+                        lineStyle: {
+                            color: '#777'
+                        }
+                    },
+                    splitLine: {
+                        show: true,
+                        lineStyle: {
+                            color: '#777'
+                        }
+                    },
+                    axisTick: {
+                        show: false
+                    },
+                    axisLabel: {
+                        formatter: '{value}g'
+                    }
+                },
+                dataZoom: [
+                    {
+                        type: 'inside',
+                        start: 0,
+                        end: 100
+                    }
+                ],
+                grid: [{
+                    height: '60%',
+                    top: 25
+                }],
+                series: [
+                    {
+                        type: 'line',
+                        name: '公鸡体重',
+                        data: data0.maleValues,
+                        lineStyle: {
+                            color: 'red'
+                        },
+                        itemStyle: {
+                            color: 'red'
+                        }
+                    }
+                ]
+            };
+
+            var femalechickenOption = {
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'cross'
+                    },
+                    width: 2
+                },
+                legend: {
+                    data: ['母鸡体重'],
+                    top: 0,
+                    textStyle: {
+                        color: '#fff'
+                    }
+                },
+                xAxis: {
+                    type: 'category',
+                    data: data0.categoryData,
+                    boundaryGap: false,
+                    axisLine: {
+                        lineStyle: {
+                            color: '#777'
+                        }
+                    }
+                },
+                yAxis: {
+                    scale: true,
+                    splitNumber: 4,
+                    axisLine: {
+                        lineStyle: {
+                            color: '#777'
+                        }
+                    },
+                    splitLine: {
+                        show: true,
+                        lineStyle: {
+                            color: '#777'
+                        }
+                    },
+                    axisTick: {
+                        show: false
+                    },
+                    axisLabel: {
+                        formatter: '{value}g'
+                    }
+                },
+                dataZoom: [
+                    {
+                        type: 'inside',
+                        start: 0,
+                        end: 100
+                    }
+                ],
+                grid: [{
+                    height: '60%',
+                    top: 25
+                }],
+                series: [
+                    {
+                        type: 'line',
+                        name: '母鸡体重',
+                        data: data0.femaleValues,
+                        lineStyle: {
+                            color: 'blue'
+                        },
+                        itemStyle: {
+                            color: 'blue'
+                        }
+                    },
+                ]
+            };
+
+            // 创建公鸡K线图
+            var malechickenChart = echarts.init(document.getElementById('malechickenChart'));
+            malechickenChart.setOption(malechickenOption);
+
+            // 创建母鸡K线图
+            var femalechickenChart = echarts.init(document.getElementById('femalechickenChart'));
+            femalechickenChart.setOption(femalechickenOption);
+
+            var mapChart = echarts.init(document.getElementById('map'));
+            var series = [];
+
+            // 获取数据
+            var geoData = [
+                { name: '成都', value: [103.9526, 30.7617] },
+                { name: '金华', value: [120.0037, 29.1028] },
+                { name: '上海', value: [121.4648, 31.2891] },
+                { name: '梁平', value: [107.8109, 30.6810] },
+                { name: '简阳', value: [104.5525, 30.4179] }
+            ];
+
+            // 配置气泡点
+            geoData.forEach(function (item, i) {
+                series.push({
+                    type: 'effectScatter',
+                    coordinateSystem: 'geo',
+                    zlevel: 2,
+                    rippleEffect: {
+                        brushType: 'stroke'
+                    },
+                    symbolSize: 10,
+                    itemStyle: {
+                        normal: {
+                            color: '#B0CC35'
+                        }
+                    },
+                    data: [item],
+                    tooltip: {
+                        formatter: '{b}观测点'
+                    }
+                });
+            });
+            // 
+            const circleOptions = {
+                tooltip: {
+                    trigger: 'axis',
+                    position: 'left',
+                },
+                grid: { // 调整统计图上下左右边距
+                    top: 32,
+                    right: 50,
+                    bottom: 20,
+                    left: 30,
+                },
+                legend: {
+                    top: -6, // 统计图两个方块到Title的距离
+                    left: 20,
+                    left: 'center',
+                    data: ['母鸡体斜长', '公鸡体斜长', '母鸡龙骨长', '公鸡龙骨长'],
+                    textStyle: {
+                        fontSize: 8, // 字体大小
+                        color: '#ffffff', // 字体颜色
+                    },
+                },
+                xAxis: {
+                    name: '周龄',
+                    data: [0, 2, 8, 10, 12, 14, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 46, 50],
+                    axisTick: {
+                        show: true,
+                    },
+                    axisLine: {
+                        lineStyle: {
+                            color: '#777'
+                        }
+                    },
+                },
+                yAxis:
+                {
+                    name: '长度(cm)',
+                    splitLine: {
+                        // 分割线配置
+                        show: true,
+                        lineStyle: {
+                            color: '#777',
+                        },
+                    },
+                    type: 'value',
+                    axisLine: {
+                        lineStyle: {
+                            color: '#777'
+                        }
+                    },
+                    axisTick: {
+                        show: true,
+                    },
+                },
+                series: [
+                    {
+                        name: '母鸡体斜长',
+                        type: 'line',
+                        data: [3.54, 3.9, 4.72, 5.05, 5.70, 6.24, 6.60, 7.52, 8.13, 9.12, 10.24, 10.93, 11.95, 12.86, 14.11, 15.09, 15.84, 16.37, 16.76, 17.02, 17.33, 17.47],
+                    },
+                    {
+                        name: '公鸡体斜长',
+                        type: 'line',
+                        data: [2.61, 2.94, 3.77, 4.28, 4.88, 5.55, 6.31, 8.05, 9.03, 10.05, 11.1, 12.16, 13.21, 14.23, 15.21, 16.11, 16.95, 17.71, 18.38, 18.98, 19.94, 20.65],
+                    },
+                    {
+                        name: '母鸡龙骨长',
+                        type: 'line',
+                        data: [2.2, 2.41, 2.8, 3.01, 3.42, 3.9, 4.31, 5.01, 5.41, 6.00, 6.34, 6.88, 7.47, 7.93, 8.28, 8.69, 9.03, 9.20, 9.24, 9.29, 9.34, 9.36],
+                    },
+                    {
+                        name: '公鸡龙骨长',
+                        type: 'line',
+                        data: [2.19, 2.24, 2.3, 2.39, 2.46, 2.59, 2.99, 3.97, 4.52, 5.09, 5.69, 6.28, 6.88, 7.45, 7.98, 8.51, 8.98, 9.41, 9.79, 10.12, 10.66, 11.06],
+                    },
+                ],
+            };
+            var circleChart = echarts.init(document.getElementById('information'));
+            circleChart.setOption(circleOptions);
+            // 胫骨公鸡
+            var roosterChart = echarts.init(document.getElementById('roosterChart'));
+            roosterChart.setOption({
+                // title: {
+                //     x: 'center',
+                //     textStyle: {
+                //         color: '#777',
+                //         fontSize: 10,
+                //         overflow: 'overflow'
+                //     },
+                //     text: '公鸡',
+                //     top: '-4%'
+                // },
+                tooltip: {
+                    trigger: 'axis',
+                },
+                grid: { // 调整统计图上下左右边距
+                    top: 30,
+                    right: -10,
+                    bottom: 18,
+                    left: 20,
+                },
+                legend: {
+                    top: 6, // 统计图两个方块到Title的距离
+                    left: 60,
+                    itemWidth: 20,
+                    data: ['上限', '下限'],
+                    textStyle: {
+                        fontSize: 8, // 字体大小
+                        color: '#777', // 字体颜色
+                    },
+                },
+                calculable: true,
+                xAxis: {
+                    data: ['胫长', '胫围'],
+                    axisLine: {
+                        // x轴线的颜色以及宽度
+                        show: true,
+                        onZero: false,
+                        lineStyle: {
+                            color: '#777',
+                            width: 1,
+                            type: 'solid',
+                            offset: 5,
+                        },
+                    },
+                    axisTick: {
+                        show: true,
+                    },
+                    axisLabel: {
+                        // x轴文字的配置
+                        show: true,
+                        textStyle: {
+                            color: '#777',
+                            fontSize: '12px',
+                            fontFamily: 'HarmonyOS_Sans_SC',
+                        },
+                    },
+                    splitLine: {
+                        // 分割线配置
+                        show: false,
+                        lineStyle: {
+                            color: '#777',
+                        },
+                    },
+                },
+                yAxis: [
+                    {
+                        name: '胫骨(cm)',
+                        splitLine: {
+                            // 分割线配置
+                            show: true,
+                            lineStyle: {
+                                color: '#777',
+                            },
+                        },
+                        type: 'value',
+                        axisLabel: {
+                            show: true,
+                            textStyle: {
+                                color: '#777',
+                                fontSize: 8,
+                            },
+                        },
+                        nameTextStyle: {
+                            color: '#777',
+                            fontSize: 10,
+                        },
+                        axisLine: {
+                            // y轴线的颜色以及宽度
+                            show: true,
+                            lineStyle: {
+                                color: '#777',
+                                width: 1,
+                                type: 'solid',
+                            },
+                        },
+                        axisTick: {
+                            show: true,
+                        },
+                    },
+                ],
+                series: [
+                    {
+                        name: '上限',
+                        type: 'bar',
+                        barWidth: 20,
+                        barGap: '0', // 柱图间距barGap
+                        data: [10.25, 5.09],
+                        itemStyle: { // 双Y轴A柱的柱体颜色
+                            normal: {
+                                color: new echarts.graphic.LinearGradient(
+                                    0, 0, 0, 1,
+                                    [
+                                        { offset: 0, color: '#c23531' }, // 柱图渐变色
+                                        { offset: 1, color: '#e4a4a2' }, // 柱图渐变色
+                                    ]
+                                ),
+                                marginLeft: 80,
+                            },
+                        },
+                    },
+                    {
+                        name: '下限',
+                        type: 'bar',
+                        barWidth: 20,
+                        barGap: '0', // 柱图间距barGap
+                        data: [8.77, 4.15],
+                        itemStyle: { // 双Y轴A柱的柱体颜色
+                            normal: {
+                                color: new echarts.graphic.LinearGradient(
+                                    0, 0, 0, 1,
+                                    [
+                                        { offset: 0, color: '#B0CC35' }, // 柱图渐变色
+                                        { offset: 1, color: '#e3efaf' }, // 柱图渐变色
+                                    ]
+                                ),
+                                marginLeft: 80,
+                            },
+                        },
+                    },
+                ],
+            });
+
+            // 胫骨母鸡
+            var henChart = echarts.init(document.getElementById('henChart'));
+            henChart.setOption({
+                // title: {
+                //     x: 'center',
+                //     textStyle: {
+                //         color: '#777',
+                //         fontSize: 10,
+                //     },
+                //     text: '母鸡',
+                //     top: -4,
+                // },
+                tooltip: {
+                    trigger: 'axis',
+                },
+                grid: { // 调整统计图上下左右边距
+                    top: 30,
+                    right: -10,
+                    bottom: 18,
+                    left: 20,
+                },
+                legend: {
+                    top: 6, // 统计图两个方块到Title的距离
+                    left: 60,
+                    itemWidth: 20,
+                    data: ['上限', '下限'],
+                    textStyle: {
+                        fontSize: 8, // 字体大小
+                        color: '#ffffff', // 字体颜色
+                    },
+                },
+                calculable: true,
+                xAxis: {
+                    data: ['胫长', '胫围'],
+                    axisLine: {
+                        // x轴线的颜色以及宽度
+                        show: true,
+                        onZero: false,
+                        lineStyle: {
+                            color: '#777',
+                            width: 1,
+                            type: 'solid',
+                            offset: 5,
+                        },
+                    },
+                    axisTick: {
+                        show: true,
+                    },
+                    axisLabel: {
+                        // x轴文字的配置
+                        show: true,
+                        textStyle: {
+                            color: '#777',
+                            fontSize: '12px',
+                            fontFamily: 'HarmonyOS_Sans_SC',
+                        },
+                    },
+                    splitLine: {
+                        // 分割线配置
+                        show: false,
+                        lineStyle: {
+                            color: '#777',
+                        },
+                    },
+                },
+                yAxis: [
+                    {
+                        name: '胫骨(cm)',
+                        splitLine: {
+                            // 分割线配置
+                            show: true,
+                            lineStyle: {
+                                color: '#777',
+                            },
+                        },
+                        nameTextStyle: {
+                            color: '#777',
+                            fontSize: 10,
+                        },
+                        type: 'value',
+                        axisLabel: {
+                            show: true,
+                            textStyle: {
+                                color: '#777',
+                                fontSize: 8,
+                            },
+                        },
+                        axisLine: {
+                            // y轴线的颜色以及宽度
+                            show: true,
+                            lineStyle: {
+                                color: '#777',
+                                width: 1,
+                                type: 'solid',
+                            },
+                        },
+                        axisTick: {
+                            show: true,
+                        },
+                    },
+                ],
+                series: [
+                    {
+                        name: '上限',
+                        type: 'bar',
+                        barWidth: 20,
+                        itemStyle: { // 双Y轴A柱的柱体颜色
+                            normal: {
+                                color: new echarts.graphic.LinearGradient(
+                                    0, 0, 0, 1,
+                                    [
+                                        { offset: 0, color: '#c23531' }, // 柱图渐变色
+                                        { offset: 1, color: '#e4a4a2' }, // 柱图渐变色
+                                    ]
+                                ),
+                                marginLeft: 80,
+                            },
+                        },
+                        barGap: '0', // 柱图间距barGap
+                        data: [7.3, 3.61],
+                    },
+                    {
+                        name: '下限',
+                        type: 'bar',
+                        barWidth: 20,
+                        barGap: '0', // 柱图间距barGap
+                        data: [6.48, 2.97],
+                        itemStyle: { // 双Y轴A柱的柱体颜色
+                            normal: {
+                                color: new echarts.graphic.LinearGradient(
+                                    0, 0, 0, 1,
+                                    [
+                                        { offset: 0, color: '#B0CC35' }, // 柱图渐变色
+                                        { offset: 1, color: '#e3efaf' }, // 柱图渐变色
+                                    ]
+                                ),
+                                marginLeft: 80,
+                            },
+                        },
+                    },
+                ],
+            });
+            //降雨量
+            function creatBall(ele, data) {
+                new WaterPolo(ele, {
+                    cW: 55,
+                    cH: 55,
+                    baseY: data
+                })
+            }
+            creatBall('rainfallOne', 80);
+            creatBall('rainfallTwo', 60);
+            creatBall('rainfallThree', 30);
+            creatBall('rainfallFour', 20);
+        });
+    </script>
+</body>
+
+</html>
